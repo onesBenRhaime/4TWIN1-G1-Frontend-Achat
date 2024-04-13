@@ -16,7 +16,7 @@ export class InvoiceComponent implements OnInit {
   }
 
   getAllInvoices(): void {
-    this.http.get<any[]>('http://localhost:8050/invoice')
+    this.http.get<any[]>('http://192.168.33.10:8050/invoice')
       .subscribe(
         (data) => {
           this.invoices = data;
