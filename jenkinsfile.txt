@@ -1,0 +1,48 @@
+pipeline {
+    agent any
+    environment {
+        DOCKER_IMAGE_NAME = "13025486/montassar-4twin-g1-frontentachat"
+        DOCKER_HUB_CREDENTIALS = 'docker' // Assuming this is the ID of Jenkins credentials
+        DOCKER_COMPOSE_VERSION = "1.29.2"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('docker Build') {
+            steps {
+                script {
+                    docker.build("${DOCKER_IMAGE_NAME}")
+                }
+            }
+        }
+
+        stage('docker push') {
+            steps {
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', "${DOCKER_HUB_CREDENTIALS}") {
+                        docker.image("${DOCKER_IMAGE_NAME}").push("latest")
+                    }
+                }
+            }
+        }
+
+        stage('Run Docker Compose') {
+            steps {
+                script {
+                    // Login to Docker Hub
+                    docker.withRegistry('', "${DOCKER_HUB_CREDENTIALS}") {
+                        // Pull the Docker images if needed
+                        sh "docker compose pull"
+                        // Run Docker Compose
+                        sh "docker compose up -d"
+                    }
+                }
+            }
+        }
+    }
+}

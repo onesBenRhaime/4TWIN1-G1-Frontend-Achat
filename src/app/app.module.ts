@@ -10,7 +10,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { ProductListComponent } from './product-list/product-list.component';
-import { ContactComponent } from './contact/contact.component'; // Import FormsModule
+import { ContactComponent } from './contact/contact.component';
+import { CommonModule } from '@angular/common';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 
 
@@ -21,10 +23,12 @@ import { ContactComponent } from './contact/contact.component'; // Import FormsM
     StockComponent,
     ProductComponent,
     ProductListComponent,
-    ContactComponent
+    ContactComponent,
+    InvoiceComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule, // Add this line
     AppRoutingModule,
     HttpClientModule,
     MatButtonModule,

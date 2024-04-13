@@ -1,0 +1,17 @@
+<div class="row">
+    <div *ngFor="let invoice of invoices" class="col-md-4 mb-4">
+      <div class="card invoice-card">
+        <div class="card-header">
+          <h5 class="card-title">{{ invoice.idInvoice }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ invoice.dateCreationInvoice }}</h6>
+        </div>
+        <div class="card-body">
+          <p class="card-text">Amount Discount: {{ invoice.amountDiscount }}</p>
+          <p class="card-text">Amount Invoice: {{ invoice.amountInvoice }}</p>
+          <p class="card-text">Last Modified: {{ invoice.dateLastModificationInvoice }}</p>
+          <p class="card-text">Archived: {{ invoice.archived }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
