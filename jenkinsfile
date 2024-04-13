@@ -1,0 +1,45 @@
+pipeline {
+    agent any
+    environment {
+        DOCKER_IMAGE_NAME = "eyamechergui/angular"
+        DOCKER_HUB_CREDENTIALS = 'docker'
+        DOCKER_COMPOSE_VERSION = "1.29.2"
+    }
+
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+            stage('docker Build') {
+                    steps {
+                        sh 'docker build -t eyamechergui/angular .'
+                    }
+                }
+            stage('docker push') {
+                    steps {
+                        sh 'docker push eyamechergui/angular:latest'
+                    }
+                }
+
+
+            stage('Run Docker Compose') {
+                            steps {
+                                script {
+                                    // Perform Docker login
+                                    sh 'docker login -u eyamechergui  -p dockerdocker1'
+
+                                    // Pull the Docker image
+                                    sh 'docker pull eyamechergui/angular'
+
+                                    // Run Docker Compose    s
+                                    sh 'docker compose up -d'
+                                }
+                            }
+                        }
+
+
+            }
+        }

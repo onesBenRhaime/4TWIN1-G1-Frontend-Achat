@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+  }
+  
+ 
+  h1 {
+    font-size: 2.5rem;
+    color: #07073f; 
+    margin-bottom: 20px;
+    font-weight: bold; 
+
+  }
+  

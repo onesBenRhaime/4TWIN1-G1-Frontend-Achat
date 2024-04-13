@@ -10,7 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { ProductListComponent } from './product-list/product-list.component';
-import { ContactComponent } from './contact/contact.component'; // Import FormsModule
+import { ContactComponent } from './contact/contact.component';
+import { SupplierComponent } from './supplier/supplier.component';
 
 
 
@@ -21,7 +22,8 @@ import { ContactComponent } from './contact/contact.component'; // Import FormsM
     StockComponent,
     ProductComponent,
     ProductListComponent,
-    ContactComponent
+    ContactComponent,
+    SupplierComponent
   ],
   imports: [
     BrowserModule,

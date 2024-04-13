@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="center justify-content-center">
+    <h1>Management of Suppliers</h1>
+  </div>
+</div>
+
+<div class="flex d-flex">
+  <h1>Supplier List</h1>
+  <hr />
+  <button (click)="showForm()" class="btn btn-success mx-3 mb-3">
+    Add New Supplier
+  </button>
+</div>
+
+<div class="cardss col-4">
+  <ng-container *ngFor="let item of data">
+    <div class="card">
+      <div class="card-header">
+        <strong
+          ><h2 class="card-title">{{ item.label }}</h2></strong
+        >
+      </div>
+      <div class="card-body">
+        <h2 class="card-text">Code: {{ item.code }}</h2>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<div class="card m-3">
+  <form (ngSubmit)="submitForm()" *ngIf="displayForm" class="mx-3 mt-3">
+    <div class="row mb-3">
+      <label class="col-2 mb-3">Supplier code :</label>
+      <input type="text" [(ngModel)]="formData.code" name="code" required />
+    </div>
+    <div class="row mb-3">
+      <label class="col-2 mb-3">Label:</label>
+      <input type="text" [(ngModel)]="formData.label" name="label" required />
+    </div>
+
+    <div class="row ms-5 py-3">
+      <button
+        (click)="addSupplier(formData)"
+        button
+        class="col-1 btn btn-info"
+        type="submit"
+        value="Submit"
+      >
+        submit
+      </button>
+      <button (click)="submitForm()" button class="col-1 btn btn-danger">
+        cancel
+      </button>
+    </div>
+    <br /><br />
+  </form>
+</div>
