@@ -20,7 +20,7 @@ pipeline {
                 }
             stage('docker push') {
                     steps {
-                        sh 'docker push onesbenrhaime/onesbenrhaime-4twin-g1-frontentachat'
+                        sh 'docker push onesbenrhaime/onesbenrhaime-4twin-g1-frontentachat:latest'
                     }
                 }
 
@@ -37,5 +37,19 @@ pipeline {
                                 }
                             }
             }
-    }
+    }  
+   /*post {
+            success {
+                echo 'Build successful! Deploying...'
+                emailext body: 'Votre build est terminé avec succès.',
+                         subject: 'Notification de fin de build',
+                         to: 'ones.benrhaime@esprit.tn'
+            }
+            failure {
+                echo 'Build failed! Sending notification...'
+                emailext body: 'Votre build a échoué.',
+                         subject: 'Notification de fin de build',
+                         to: 'ones.benrhaime@esprit.tn'
+            }
+    }*/
 }
