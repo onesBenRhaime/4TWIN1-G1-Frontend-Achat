@@ -11,9 +11,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ContactComponent } from './contact/contact.component';
-import { HomeComponent } from './home/home.component'; // Import FormsModule
-
-
 
 
 @NgModule({
@@ -23,7 +20,6 @@ import { HomeComponent } from './home/home.component'; // Import FormsModule
     ProductComponent,
     ProductListComponent,
     ContactComponent,
-    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +27,9 @@ import { HomeComponent } from './home/home.component'; // Import FormsModule
     HttpClientModule,
     MatButtonModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

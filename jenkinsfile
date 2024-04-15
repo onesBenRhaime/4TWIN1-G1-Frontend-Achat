@@ -44,5 +44,23 @@ pipeline {
                 }
             }
         }
+        stage('Email Notification') {
+          steps{
+              mail bcc: '', body: ''' Stage: GIT Pull
+              - Pulling from Git...
+              Stage:  Docker Build
+              - Building Angular project...
+
+              Stage: Build Docker Image
+              - Building Docker image for the application...
+
+              Stage: Push Docker Image
+              - Pushing Docker image to Docker Hub...
+
+              Stage: Docker Compose
+              - Running Docker Compose...
+              Final Report: The pipeline has completed successfully. No action required ''', cc: '', from: '', replyTo: '', subject: 'Succès de la pipeline 4TWIN1-G1-Frontend-Achat  OnesBenRhaime-4TWIN1-G1', to: 'ones.benrhaime@esprit.tn, wafa.hidri@esprit.tn'
+          }
+      }
     }
 }
